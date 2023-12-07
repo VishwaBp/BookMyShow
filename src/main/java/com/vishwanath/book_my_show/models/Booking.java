@@ -1,5 +1,8 @@
 package com.vishwanath.book_my_show.models;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,11 +11,14 @@ import java.util.List;
 
 @Getter
 @Setter
-public class Booking {
+@Entity
+public class Booking  extends BaseModel{
+    @ManyToOne
     private Customer customer;
 
-    private List<MovieShowSeat> showSeats;
-    private MovieShow movieShow;
+//    private List<MovieShowSeat> showSeats;
+//    private MovieShow movieShow;
     private Date bookedAt;
+    @Column(nullable = true)
     private double amount;
 }
