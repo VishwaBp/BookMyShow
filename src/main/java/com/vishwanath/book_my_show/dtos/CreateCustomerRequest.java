@@ -1,0 +1,10 @@
+package com.vishwanath.book_my_show.dtos;
+
+import lombok.Data;
+
+@Data
+public class CreateCustomerRequest {
+    private String name;
+    private String email;
+    private String password;
+}

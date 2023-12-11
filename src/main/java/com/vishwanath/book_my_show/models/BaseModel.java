@@ -1,10 +1,27 @@
 package com.vishwanath.book_my_show.models;
 
-import jakarta.persistence.MappedSuperclass;
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.*;
+import lombok.Data;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import java.util.Date;
+
 
 @MappedSuperclass
-public class BaseModel  {
+@Data
+@EntityListeners(AuditingEntityListener.class)
+public class BaseModel {
     @Id
-    private int  id;
+    @GeneratedValue
+    private Long id;
+
+    @CreatedDate
+    @Temporal(value = TemporalType.TIMESTAMP)
+    private Date createdAt;
+
+    @LastModifiedDate
+    @Temporal(value = TemporalType.TIMESTAMP)
+    private Date lastModifiedAt;
 }

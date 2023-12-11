@@ -1,13 +1,17 @@
 package com.vishwanath.book_my_show.models;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
 @Setter
-public class MovieShowSeat {
+@Getter
+@Entity
+public class MovieShowSeat extends BaseModel {
+    @ManyToOne
     private MovieShow movieShow;
+    @ManyToOne
     private Seat seat;
-    private BookingSeatStatus bookingStatus;
-
+    private BookingSeatStatus status;
 }

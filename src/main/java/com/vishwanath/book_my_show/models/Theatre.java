@@ -1,10 +1,18 @@
 package com.vishwanath.book_my_show.models;
 
-import java.util.List;
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import lombok.Data;
 
-public class Theatre {
-    private City city;
+import java.util.List;
+@Data
+@Entity
+public class Theatre extends BaseModel {
+
+
     private String name;
     private String address;
+    @OneToMany
     private List<Hall> hall;
 }
